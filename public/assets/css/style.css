@@ -6,6 +6,7 @@ body {
 a:link, a:visited, a:hover, a:active {
     color: black;
   }
+  
 a{
     text-decoration: none;
 }
@@ -35,6 +36,7 @@ header h1{
 }
 
 main{
+    background-color: white;
     padding-top: 30px;
     padding-right: 0px;
     margin-top: 0px;
@@ -47,6 +49,7 @@ main{
 }
 
 .postList{
+    background-color: white;
     margin: 0;
     float: left;
     width: 70%;
@@ -94,13 +97,14 @@ main{
 }
 
 .sidebar{
-    position: fixed;
+    background-color: white;
     margin-left: 70%;
     width: 30%;
 
 }
 
 .search{
+    background-color: white;
     padding: 40px 20px 20px 20px;
 }
 
@@ -109,7 +113,12 @@ main{
     padding: 3px 10px 3px 10px;
 }
 
+.category ol{
+    background-color: white;
+}
+
 .category a{
+    background-color: white;
     margin: 5px;
     float: left;
     padding: 3px 5px 3px 5px;
@@ -122,6 +131,7 @@ main{
 }
 
 footer{
+    background-color: white;
     padding: 20px;
     clear: both;
     width: 100%;
