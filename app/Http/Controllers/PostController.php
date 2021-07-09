@@ -9,12 +9,10 @@ class PostController extends Controller
 {
     public function index(Post $post)
     {
-        $all = Post::get();
-        return view('blogList.index', ["posts" => $all]);
+        return view('blogList.index')->with(['posts' => $post->getPaginateByLimit()]);
     }
     
-    public function getByLimit(){
-        $desc10 = Post::orderBy("update_at", "asc")->limit(10)->get();
-        return view('blogList.index', ["posts" => $desc10]);
+    public function show(Post $post){
+        return view('show.show')->with(['post' => $post]);
     }
 }

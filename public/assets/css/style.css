@@ -36,12 +36,10 @@ header h1{
 }
 
 main{
-    background-color: white;
     padding-top: 30px;
-    padding-right: 0px;
     margin-top: 0px;
     width: 100%;
-    
+    min-height: 700px;
 }
 
 .line{
@@ -49,11 +47,11 @@ main{
 }
 
 .postList{
-    background-color: white;
-    margin: 0;
+    margin: 20px 0px 0px 0px;
     float: left;
     width: 70%;
-    padding: 0px 0px 30px 0px;
+    min-height: 800px;
+    padding: 0px;
     border-right: 2px solid rgb(44, 207, 202);
     box-sizing: border-box;
 }
@@ -63,18 +61,49 @@ main{
     padding: 0;
 }
 
-.postList li{
+.postList ul li{
     margin: 15px;
     padding:5px;
     list-style: none;
 
 }
 
-.postList h2{
+.postList ul li a{
     font-size: 20px;
+    font-weight: bold;
 }
-.postList p {
+.postList ul li p {
     font-size: 14px;
+}
+
+.show{
+    margin: 0px;
+    padding: 0px;
+    min-height: 800px;
+}
+
+.showTitle {
+    margin: 0px;
+    padding: 10px;
+}
+
+.showContent{
+    margin: 0px;
+    padding: 10px;
+    min-height: 640px;
+}
+
+
+.date {
+    margin: 5px 0px 5px 20px;
+    float: left;
+    padding: 0px 20px;
+}
+
+.back {
+    margin: 20px;
+    float: right;
+    padding: 0px 20px;
 }
 
 .more10 {
@@ -97,15 +126,15 @@ main{
 }
 
 .sidebar{
-    background-color: white;
+    margin-top: 20px;
+    position: fixed;
     margin-left: 70%;
     width: 30%;
-
+    min-height: 800px;
 }
 
 .search{
-    background-color: white;
-    padding: 40px 20px 20px 20px;
+    padding: 20px;
 }
 
 .search input {
@@ -113,12 +142,7 @@ main{
     padding: 3px 10px 3px 10px;
 }
 
-.category ol{
-    background-color: white;
-}
-
 .category a{
-    background-color: white;
     margin: 5px;
     float: left;
     padding: 3px 5px 3px 5px;
@@ -131,7 +155,6 @@ main{
 }
 
 footer{
-    background-color: white;
     padding: 20px;
     clear: both;
     width: 100%;

@@ -18,7 +18,7 @@
                 <ul>
                     @foreach ($posts as $post)
                     <li>
-                        <h2>{{$post->title}}</h2></h2>
+                        <a href="/posts/{{ $post->id }}">{{$post->title}}</a>
                         <p>{{$post->body}}</p>
                     </li>
                     <div class="line"></div>
@@ -27,6 +27,9 @@
                 <div class="more10">
                     <a href="" id="minus10">previus</a>
                     <a href="" id="plus10">next</a>
+                    <div class='paginate'>
+                    {{ $posts->links() }}
+                    </div>
                 </div>
             </div>
             <div class="sidebar">

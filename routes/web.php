@@ -17,4 +17,4 @@ Route::get('/', function () {
 
 Route::get('/posts', 'PostController@index');
 
-Route::get('/desc ', 'PostController@getByLimit');
+Route::get('/posts/{post}', 'PostController@show');
