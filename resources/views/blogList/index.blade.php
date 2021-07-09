@@ -7,7 +7,7 @@
     </head>
     <body>
         <header>
-            <h1>blog</h1>
+            <a href="/posts">Blog</a>
             <div class="myInfo">
                 <a href="">投稿する</a>
                 <a href="">ログインする</a>

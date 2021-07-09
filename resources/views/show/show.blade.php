@@ -6,11 +6,10 @@
     <title>blogList</title>
     <link rel="stylesheet" href="{{secure_asset('/assets/css/style.css')}}">
 </head>
-</head>
 
 <body>
     <header>
-        <h1>blog</h1>
+        <a href="/posts">Blog</a>
         <div class="myInfo">
             <a href="">投稿する</a>
             <a href="">ログインする</a>
@@ -30,9 +29,6 @@
                 <div class="backHome">
                     <div class="date">
                         <p>{{$post->update_at}}</p>
-                    </div>
-                    <div class="back">
-                        <a href="/posts">戻る</a>
                     </div>
                 </div>
             </div>
