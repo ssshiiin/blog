@@ -19,10 +19,14 @@
                 <h2>投稿する</h2>
                 <form action="/posts" method="POST">
                     @csrf
-                    <input class="title" type="text" name="post[title]" placeholder="タイトル">
-                    <br>
-                    <textarea class="postBody" name="post[body]" placeholder="コンテント"></textarea>
-                    <br>
+                    <div class="titleEria">
+                        <input class="title" type="text" name="post[title]" value = "{{old('post.title')}}" placeholder="タイトル">
+                        <p class="error">{{ $errors->first('post.title') }}</p>
+                    </div>
+                    <div class="eriaBody">
+                        <textarea class="postBody" name="post[body]" placeholder="コンテント">{{old('post.body')}}</textarea>
+                        <p class="error">{{ $errors->first('post.body') }}</p>
+                    </div>
                     <input class="postSubmit" type="submit" value="保存">
                 </form>
             </div>
