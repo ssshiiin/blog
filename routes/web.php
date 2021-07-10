@@ -1,5 +1,6 @@
 <?php
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,6 +15,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('/posts', 'PostController@store');
 
 Route::get('/posts/create', 'PostController@create');
 

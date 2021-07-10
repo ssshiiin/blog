@@ -10,17 +10,18 @@
         <header>
             <a href="/posts">Blog</a>
             <div class="myInfo">
-                <a href="">投稿する</a>
+                <a href="/posts/create">投稿する</a>
                 <a href="">ログインする</a>
             </div>
         </header>
         <main>
             <div class="createPost">
                 <h2>投稿する</h2>
-                <form>
-                    <input class="title" type="text">
+                <form action="/posts" method="POST">
+                    @csrf
+                    <input class="title" type="text" name="post[title]" placeholder="タイトル">
                     <br>
-                    <textarea class="postBody"></textarea>
+                    <textarea class="postBody" name="post[body]" placeholder="コンテント"></textarea>
                     <br>
                     <input class="postSubmit" type="submit" value="保存">
                 </form>
