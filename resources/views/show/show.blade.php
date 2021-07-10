@@ -31,7 +31,12 @@
                         <p>{{$post->update_at}}</p>
                     </div>
                     <div class="back">
-                        <a href="/posts/{{$post->id}}/edit">編集する</a>
+                        <form action="/posts/{{$post->id}}" method="POST" onsubmit="return saveCheck();">
+                            @method('DELETE')
+                            @csrf
+                            <a href="/posts/{{$post->id}}/edit">編集する</a>
+                            <input type="submit" value="削除する">
+                        </form>
                     </div>
                 </div>
             </div>
@@ -62,6 +67,16 @@
         <h2>株式会社-------</h2>
         <p>2021年7月5日</p>
     </footer>
+    <script>
+        let saveCheck = () =>{
+        if(confirm("ok?")){
+            return true;
+        }
+        else{
+            return false;
+        }
+        }
+    </script>
 </body>
 
 </html>

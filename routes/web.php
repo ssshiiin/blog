@@ -16,6 +16,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::delete('/posts/{post}', 'PostController@delete');
+
 Route::post('/posts/{post}', 'PostController@update');
 
 Route::post('/posts', 'PostController@store');
