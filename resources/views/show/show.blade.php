@@ -9,7 +9,7 @@
 
 <body>
     <header>
-        <a href="/posts">Blog</a>
+        <a href="/posts">Blog</h1>
         <div class="myInfo">
             <a href="/posts/create">投稿する</a>
             <a href="">ログインする</a>
@@ -28,7 +28,15 @@
                 <div class="line"></div>
                 <div class="backHome">
                     <div class="date">
-                        <p>{{$post->updated_at}}</p>
+                        <p>{{$post->update_at}}</p>
+                    </div>
+                    <div class="back">
+                        <form action="/posts/{{$post->id}}" method="POST" onsubmit="return saveCheck();">
+                            @method('DELETE')
+                            @csrf
+                            <a href="/posts/{{$post->id}}/edit">編集する</a>
+                            <input type="submit" value="削除する">
+                        </form>
                     </div>
                 </div>
             </div>
@@ -51,7 +59,6 @@
                     <a href="">プログラミング言語</a>
                     <a href="">転職</a>
                     <a href="">娯楽</a>
-                    <a href="">日本語</a>
                 </ol>
             </div>
         </div>
@@ -60,6 +67,16 @@
         <h2>株式会社-------</h2>
         <p>2021年7月5日</p>
     </footer>
+    <script>
+        let saveCheck = () =>{
+        if(confirm("ok?")){
+            return true;
+        }
+        else{
+            return false;
+        }
+        }
+    </script>
 </body>
 
 </html>
