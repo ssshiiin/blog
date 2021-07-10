@@ -17,7 +17,7 @@
         <main>
             <div class="createPost">
                 <h2>編集する</h2>
-                <form action="/posts" method="POST">
+                <form action="/posts/{{$post->id}}" method="POST">
                     @csrf
                     <div class="titleEria">
                         <input class="title" type="text" name="post[title]" value = "{{$post->title}}" placeholder="タイトル">

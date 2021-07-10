@@ -9,7 +9,7 @@
 
 <body>
     <header>
-        <a href="/posts">Blog</a>
+        <a href="/posts">Blog</h1>
         <div class="myInfo">
             <a href="/posts/create">投稿する</a>
             <a href="">ログインする</a>
@@ -28,7 +28,10 @@
                 <div class="line"></div>
                 <div class="backHome">
                     <div class="date">
-                        <p>{{$post->updated_at}}</p>
+                        <p>{{$post->update_at}}</p>
+                    </div>
+                    <div class="back">
+                        <a href="/posts/{{$post->id}}/edit">編集する</a>
                     </div>
                 </div>
             </div>
@@ -51,7 +54,6 @@
                     <a href="">プログラミング言語</a>
                     <a href="">転職</a>
                     <a href="">娯楽</a>
-                    <a href="">日本語</a>
                 </ol>
             </div>
         </div>
