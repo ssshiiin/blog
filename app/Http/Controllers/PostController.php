@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post; 
 use App\Http\Requests\PostRequest;
+use Illuminate\Http\Request;
 
 
 class PostController extends Controller
@@ -42,6 +43,22 @@ class PostController extends Controller
     public function delete(Post $post){
         $post->delete();
         return redirect('/posts');
-        
+    }
+    
+    public function searchTitle(Request $request, Post $post){
+        $search = $request->get("title");
+        $hitTitle = $post->getTitleSearchBylimitPaginate($search);
+        if ($hitTitle->isEmpty()){
+            return redirect('/posts');
+        }
+        else{
+            return view('blogList.index')->with(['posts' => $hitTitle]);
+        }
+    }
+
+    public function searchPriod(Request $request, Post $post){
+        $search = $request->input();
+    
+        return view('blogList.index')->with(['posts' => $post->getPreviousUpdatetd_atBylimitPaginate($search)]);
     }
 }
