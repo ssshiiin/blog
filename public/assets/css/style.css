@@ -122,7 +122,14 @@ main{
     font-size: 20px;
     font-weight: bold;
 }
+
 .postList ul li p {
+    font-size: 14px;
+}
+
+.postList ul li p a{
+    display: block;
+    text-align: right;
     font-size: 14px;
 }
 
@@ -200,9 +207,11 @@ main{
     padding: 20px;
 }
 
-.search input {
+.search input, .search select{
+    background-color: white;
     margin: 10px;
     padding: 3px 10px 3px 10px;
+    border: 1px solid black;
 }
 
 .category a{

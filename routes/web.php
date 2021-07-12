@@ -18,6 +18,10 @@ Route::get('/', function () {
 
 Route::delete('/posts/{post}', 'PostController@delete');
 
+Route::get('/posts/search/title', 'PostController@searchTitle');
+
+Route::get('/posts/search/period', 'PostController@searchPriod');
+
 Route::post('/posts/{post}', 'PostController@update');
 
 Route::post('/posts', 'PostController@store');

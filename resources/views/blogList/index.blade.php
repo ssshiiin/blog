@@ -19,7 +19,11 @@
                     @foreach ($posts as $post)
                     <li>
                         <a href="/posts/{{ $post->id }}">{{$post->title}}</a>
-                        <p>{{$post->body}}</p>
+                        @if(mb_substr($post->body, 20))
+                        <p>{{mb_substr($post->body, 0, 20) . "..."}}<a href="/posts/{{ $post->id }}">続きを読む</a></p>
+                        @else
+                        <p>{{mb_substr($post->body, 0, 20)}}</p>
+                        @endif
                     </li>
                     <div class="line"></div>
                     @endforeach
@@ -34,9 +38,30 @@
             </div>
             <div class="sidebar">
                 <div class="search">
-                    <form>
-                        <input type="text">
+                    <form action="/posts/search/title" method="get">
+                        @csrf
+                        <input type="text" name="title">
                         <input type="submit" value="search">
+                    </form>
+                    <form action="/posts/search/period" method="GET">
+                        @csrf
+                        <select name="year">
+                            @for($i = 1990; $i <= date("Y"); $i++)
+                            <option value="{{$i}}">{{$i}}年</option>
+                            @endfor
+                        </select>
+                        <select name="month">
+                            @for($i = 1; $i <= 12; $i++)
+                            <option value="{{$i}}">{{$i}}月</option>
+                            @endfor
+                        </select>
+                        <select name="day">
+                            @for($i = 1; $i <= 31; $i++)
+                            <option value="{{$i}}">{{$i}}日</option>
+                            @endfor
+                        </select>
+                        <br>
+                        <input type="submit" value="から今日までの記事を検索">
                     </form>
                 </div>
                 <div class="category">
@@ -56,7 +81,7 @@
         </main>
         <footer>
             <h2>株式会社-------</h2>
-            <p>2021年7月5日</p>
+            <p>{{now()}}</p>
         </footer>
     </body>
 </html>
