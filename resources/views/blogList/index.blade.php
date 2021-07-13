@@ -4,13 +4,22 @@
         <meta charset="UTF-8">
         <title>blogList</title>
         <link rel="stylesheet" href="{{secure_asset('/assets/css/style.css')}}">
+        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     </head>
     <body>
         <header>
-            <a href="/posts">Blog</a>
+            <a href="/posts" style=" font-family: 'Nunito';">Blog</a>
             <div class="myInfo">
                 <a href="/posts/create">投稿する</a>
-                <a href="">ログインする</a>
+                @auth
+                    <a href="" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();" >ログアウトする</a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                @else
+                    <a href={{route("login")}}>ログインする</a>
+                @endauth
             </div>
         </header>
         <main>
