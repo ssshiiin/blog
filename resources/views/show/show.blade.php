@@ -31,12 +31,17 @@
                         <p>{{$post->updated_at}}</p>
                     </div>
                     <div class="back">
+                        <?php $authUser = Auth::user()->id; ?>
+                        @if(($authUser) == ($post->user->id))
                         <form action="/posts/{{$post->id}}" method="POST">
                             @method('DELETE')
                             @csrf
                             <a href="/posts/{{$post->id}}/edit">編集する</a>
                             <input type="submit" value="削除する" onclick="return postdelete();">
                         </form>
+                        @else
+                        <a>{{$post->user->name}}</a>
+                        @endif
                     </div>
                 </div>
             </div>

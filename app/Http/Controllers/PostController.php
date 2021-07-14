@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post; 
+use App\Models\User;
 use App\Http\Requests\PostRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 
 class PostController extends Controller
@@ -22,9 +24,10 @@ class PostController extends Controller
         return view('create.create');
     }
     
-    public function store(PostRequest $request, Post $post)
+    public function store(PostRequest $request, Post $post, User $user)
     {
         $input = $request['post'];
+        $input += array('user_id'=> $user->id);
         $post->fill($input)->save();
         return redirect('/posts/' . $post->id);
     }
@@ -60,5 +63,9 @@ class PostController extends Controller
         $search = $request->input();
     
         return view('blogList.index')->with(['posts' => $post->getPreviousUpdatetd_atBylimitPaginate($search)]);
+    }
+    
+    public function mypage(){
+        return view("mypage.mypage");
     }
 }

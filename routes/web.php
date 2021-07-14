@@ -24,7 +24,7 @@ Route::get('/posts/search/period', 'PostController@searchPriod');
 
 Route::post('/posts/{post}', 'PostController@update');
 
-Route::post('/posts', 'PostController@store');
+Route::post('/posts/create/{user}', 'PostController@store');
 
 Route::get('/posts/create', 'PostController@create');
 
@@ -33,6 +33,8 @@ Route::get('/posts/{post}/edit', 'PostController@edit');
 Route::get('/posts/{post}', 'PostController@show');
 
 Route::get('/posts', 'PostController@index');
+
+Route::get("/mypage/{nameId}", "PostController@mypage");
 
 
 Auth::routes();

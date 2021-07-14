@@ -17,7 +17,7 @@
         <main>
             <div class="createPost">
                 <h2>投稿する</h2>
-                <form action="/posts" method="POST">
+                <form action="/posts/create/{{Auth::user()->id}}" method="POST">
                     @csrf
                     <div class="titleEria">
                         <input class="title" type="text" name="post[title]" value = "{{old('post.title')}}" placeholder="タイトル">

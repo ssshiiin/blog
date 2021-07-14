@@ -8,10 +8,11 @@
     </head>
     <body>
         <header>
-            <a href="/posts" style=" font-family: 'Nunito';">Blog</a>
+            <a href="/posts" style=" font-family: 'Nunito';">Blog-投稿一覧</a>
             <div class="myInfo">
-                <a href="/posts/create">投稿する</a>
                 @auth
+                    <a href="/mypage/{{Auth::user()->id}}">{{Auth::user()->name}}</a>
+                    <a href="/posts/create">投稿する</a>
                     <a href="" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();" >ログアウトする</a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -19,6 +20,7 @@
                     </form>
                 @else
                     <a href={{route("login")}}>ログインする</a>
+                    <a href={{route("register")}}>会員登録する</a>
                 @endauth
             </div>
         </header>
