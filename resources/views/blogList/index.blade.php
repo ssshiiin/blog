@@ -42,9 +42,6 @@
                 <div class="more10">
                     <a href="" id="minus10">previus</a>
                     <a href="" id="plus10">next</a>
-                    <div class='paginate'>
-                    {{ $posts->links() }}
-                    </div>
                 </div>
             </div>
             <div class="sidebar">
@@ -91,7 +88,7 @@
             </div>
         </main>
         <footer>
-            <h2>株式会社-------</h2>
+            <h2>管理人：shin</h2></h2>
             <p>{{now()}}</p>
         </footer>
     </body>

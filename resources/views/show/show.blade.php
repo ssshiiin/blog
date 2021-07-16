@@ -5,16 +5,26 @@
     <meta charset="UTF-8">
     <title>blogList</title>
     <link rel="stylesheet" href="{{secure_asset('/assets/css/style.css')}}">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 </head>
-
 <body>
     <header>
-        <a href="/posts">Blog</h1>
+        <a href="/posts" style=" font-family: 'Nunito';">Blog-投稿の詳細</a>
         <div class="myInfo">
-            <a href="/posts/create">投稿する</a>
-            <a href="">ログインする</a>
-        </div>
-    </header>
+            @auth
+                <a href="/mypage/{{Auth::user()->id}}">{{Auth::user()->name}}</a>
+                <a href="/posts/create">投稿する</a>
+                <a href="" onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();" >ログアウトする</a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+                @else
+                    <a href={{route("login")}}>ログインする</a>
+                    <a href={{route("register")}}>会員登録する</a>
+                @endauth
+            </div>
+        </header>
     <main>
         <div class="postList">
             <div class="show">
@@ -24,6 +34,9 @@
                 <div class="line"></div>
                 <div class="showContent">
                     <p>{{$post->body}}</p>
+                    <div class="image-post">
+                        <img src={{$post->image_path}}>
+                    </div>
                 </div>
                 <div class="line"></div>
                 <div class="backHome">
@@ -40,7 +53,7 @@
                             <input type="submit" value="削除する" onclick="return postdelete();">
                         </form>
                         @else
-                        <a>{{$post->user->name}}</a>
+                        <a href="/userpage/{{$post->user->id}}">{{$post->user->name}}</a>
                         @endif
                     </div>
                 </div>
@@ -69,8 +82,8 @@
         </div>
     </main>
     <footer>
-        <h2>株式会社-------</h2>
-        <p>2021年7月5日</p>
+        <h2>管理人：shin</h2>
+        <p><?php echo(now()) ?></p>
     </footer>
     <script type="text/javascript" src="{{secure_asset('/assets/js/delete.js')}}"></script>
 </body>

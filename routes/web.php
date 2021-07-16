@@ -34,7 +34,13 @@ Route::get('/posts/{post}', 'PostController@show');
 
 Route::get('/posts', 'PostController@index');
 
-Route::get("/mypage/{nameId}", "PostController@mypage");
+Route::get("/mypage/{user}", "PostController@mypage");
+
+Route::get("/userpage/{user}", "PostController@userpage");
+
+Route::post("/profile/{user}", "PostController@createProfile");
+
+Route::get("/profile", "PostController@profile");
 
 
 Auth::routes();

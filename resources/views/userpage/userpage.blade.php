@@ -8,7 +8,7 @@
     </head>
     <body>
         <header>
-            <a href="/posts" style=" font-family: 'Nunito';">Blog-自分の投稿</a>
+            <a href="/posts" style=" font-family: 'Nunito';">Blog-{{$user->name}}さんの投稿</a>
             <div class="myInfo">
                 @auth
                     <a href="/mypage/{{Auth::user()->id}}">{{Auth::user()->name}}</a>
@@ -26,12 +26,9 @@
         </header>
         <main>
             <div class="postList">
+                <p>{{$user->name}}のプロフィール</p>
                 @if($user->profile)
-                    <p>{{$user->name}}のプロフィール</p>
                     <p>{{$user->profile->profile}}</p>
-                    <a class="profileLink" href="/profile">編集する</a>
-                @else
-                    <a class="profileLink" href="/profile">プロフィールを作ろう</a>
                 @endif
                 <div class="line"></div>
                 <ul>

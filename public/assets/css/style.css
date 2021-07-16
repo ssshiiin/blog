@@ -32,8 +32,8 @@ header a{
     float: right;
 }
 
-.myInfo a , .myInfo form a{
-    font-size: 18px;
+.myInfo a {
+    font-size: 20px;
     font-weight: normal;
     float: left;
     margin: 10px;
@@ -81,6 +81,15 @@ main{
     width: 60%;
     height: 300px;
     margin: 0px 20% 0px 20%;
+}
+
+.image-post {
+    position: relative;
+}
+
+.image-post img {
+    max-height: 350px;
+    width: auto;
 }
 
 .error{
