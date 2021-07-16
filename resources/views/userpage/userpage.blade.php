@@ -8,7 +8,7 @@
     </head>
     <body>
         <header>
-            <a href="/posts" style=" font-family: 'Nunito';">Blog-投稿一覧</a>
+            <a href="/posts" style=" font-family: 'Nunito';">Blog-{{$user->name}}さんの投稿</a>
             <div class="myInfo">
                 @auth
                     <a href="/mypage/{{Auth::user()->id}}">{{Auth::user()->name}}</a>
@@ -26,6 +26,11 @@
         </header>
         <main>
             <div class="postList">
+                <p>{{$user->name}}のプロフィール</p>
+                @if($user->profile)
+                    <p>{{$user->profile->profile}}</p>
+                @endif
+                <div class="line"></div>
                 <ul>
                     @foreach ($posts as $post)
                     <li>
@@ -39,10 +44,6 @@
                     <div class="line"></div>
                     @endforeach
                 </ul>
-                <div class="more10">
-                    <a href="" id="minus10">previus</a>
-                    <a href="" id="plus10">next</a>
-                </div>
             </div>
             <div class="sidebar">
                 <div class="search">
@@ -88,8 +89,9 @@
             </div>
         </main>
         <footer>
-            <h2>管理人：shin</h2></h2>
+            <h2>株式会社-------</h2>
             <p>{{now()}}</p>
         </footer>
     </body>
 </html>
+        

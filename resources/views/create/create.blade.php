@@ -17,7 +17,7 @@
         <main>
             <div class="createPost">
                 <h2>投稿する</h2>
-                <form action="/posts" method="POST">
+                <form action="/posts/create/{{Auth::user()->id}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="titleEria">
                         <input class="title" type="text" name="post[title]" value = "{{old('post.title')}}" placeholder="タイトル">
@@ -27,6 +27,7 @@
                         <textarea class="postBody" name="post[body]" placeholder="コンテント">{{old('post.body')}}</textarea>
                         <p class="error">{{ $errors->first('post.body') }}</p>
                     </div>
+                    <input type='file' name='image'>
                     <input class="postSubmit" type="submit" value="保存">
                 </form>
             </div>
